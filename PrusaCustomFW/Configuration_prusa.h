@@ -41,29 +41,29 @@ AXIS SETTINGS
 
 // Steps per unit {X,Y,Z,E}
 #ifdef SNMM
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,140}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,560,140} //100, 100, 3200/8, 140
 #else
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,161.3}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,560,104} //100, 100, 3200/8, 161.3
 #endif
 
 
 // Endstop inverting
 const bool X_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
-const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
+const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 
 // Home position
 #define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS -2.2
-#define MANUAL_Z_HOME_POS 0.15
+#define MANUAL_Y_HOME_POS 0 // -2.2
+#define MANUAL_Z_HOME_POS 0.0 //0.15
 
 // Travel limits after homing
 #define X_MAX_POS 250
 #define X_MIN_POS 0
-#define Y_MAX_POS 210
+#define Y_MAX_POS 400
 #define Y_MIN_POS -2.2
 #define Z_MAX_POS 210
-#define Z_MIN_POS 0.15
+#define Z_MIN_POS 0.0 //0.15
 
 // Canceled home position
 #define X_CANCEL_POS 50
@@ -230,9 +230,9 @@ BED SETTINGS
 #define MESH_HOME_Z_CALIB 0.2
 #define MESH_HOME_Z_SEARCH 5 //Z lift for homing, mesh bed leveling etc.
 
-#define X_PROBE_OFFSET_FROM_EXTRUDER 36     // Z probe to nozzle X offset: -left  +right
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -20     // Z probe to nozzle Y offset: -front +behind
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.83  // Z probe to nozzle Z offset: -below (always!)
+#define X_PROBE_OFFSET_FROM_EXTRUDER 23     // Z probe to nozzle X offset: -left  +right
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -9     // Z probe to nozzle Y offset: -front +behind
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.83  // Z probe to nozzle Z offset: -below (always!) -0.83
 #endif
 
 // Bed Temperature Control
