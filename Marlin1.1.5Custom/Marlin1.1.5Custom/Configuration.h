@@ -845,7 +845,7 @@
  *   leveling in steps so you can manually adjust the Z height at each grid-point.
  *   With an LCD controller the process is guided step-by-step.
  */
-//#define AUTO_BED_LEVELING_3POINT
+#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 //#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
@@ -869,16 +869,17 @@
 
   // Set the number of grid points per dimension.
   #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_Y 2 
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 5
-  #define RIGHT_PROBE_BED_POSITION 238
-  #define FRONT_PROBE_BED_POSITION 30
-  #define BACK_PROBE_BED_POSITION 105
+  #define LEFT_PROBE_BED_POSITION  (((X_BED_SIZE) / 4) - 12) //50.5
+  #define RIGHT_PROBE_BED_POSITION (X_BED_SIZE)    //250
+  #define FRONT_PROBE_BED_POSITION (((Y_BED_SIZE) / 4) - 13)  //30
+  #define BACK_PROBE_BED_POSITION  ((Y_BED_SIZE) + 0)     //105
 
   // The Z probe minimum outer margin (to validate G29 parameters).
-  #define MIN_PROBE_EDGE 1
+  #define MIN_PROBE_EDGE 0
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
@@ -887,7 +888,7 @@
 
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
-    //#define EXTRAPOLATE_BEYOND_GRID
+    #define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
@@ -905,12 +906,12 @@
 
   // 3 arbitrary points to probe.
   // A simple cross-product is used to estimate the plane of the bed.
-  #define ABL_PROBE_PT_1_X 15
-  #define ABL_PROBE_PT_1_Y 180
-  #define ABL_PROBE_PT_2_X 15
-  #define ABL_PROBE_PT_2_Y 20
-  #define ABL_PROBE_PT_3_X 170
-  #define ABL_PROBE_PT_3_Y 20
+  #define ABL_PROBE_PT_1_X (((X_BED_SIZE) /4) - 12)
+  #define ABL_PROBE_PT_1_Y (((Y_BED_SIZE) /4) - 13)
+  #define ABL_PROBE_PT_2_X (((X_BED_SIZE) /2) + 26)
+  #define ABL_PROBE_PT_2_Y ((((Y_BED_SIZE) /4) *2) + 30)
+  #define ABL_PROBE_PT_3_X (X_BED_SIZE)
+  #define ABL_PROBE_PT_3_Y (((Y_BED_SIZE) /4) - 13)
 
 #elif ENABLED(AUTO_BED_LEVELING_UBL)
 
@@ -938,7 +939,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET 10          // Mesh inset margin on print area
+  #define MESH_INSET 10          // Mesh inset margin on print area - was 10
   #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
@@ -988,7 +989,7 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 4)    // X point for Z homing when homing all axis (G28). (X_BED_SIZE) / 2
+  #define Z_SAFE_HOMING_X_POINT (((X_BED_SIZE) / 4) - 12)    // X point for Z homing when homing all axis (G28). (X_BED_SIZE) / 2
   #define Z_SAFE_HOMING_Y_POINT (((Y_BED_SIZE) / 4) - 13 )    // Y point for Z homing when homing all axis (G28). (Y_BED_SIZE) / 2
 #endif
 
