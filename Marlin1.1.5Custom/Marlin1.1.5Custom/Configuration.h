@@ -678,9 +678,10 @@
  *      O-- FRONT --+
  *    (0,0)
  */
+ 
 #define X_PROBE_OFFSET_FROM_EXTRUDER 36  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 0//-15  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.86   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.40   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -846,8 +847,8 @@
  *   With an LCD controller the process is guided step-by-step.
  */
 //#define AUTO_BED_LEVELING_3POINT
-#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+//#define AUTO_BED_LEVELING_LINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -873,6 +874,7 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
+  //NEED TO SET THIS JANUARY 2018
   #define LEFT_PROBE_BED_POSITION  (((X_BED_SIZE) / 4) - 25) //50.5
   #define RIGHT_PROBE_BED_POSITION ((X_BED_SIZE) - 15)    //250
   #define FRONT_PROBE_BED_POSITION 0 //(((Y_BED_SIZE) / 16) - 30)  //30
