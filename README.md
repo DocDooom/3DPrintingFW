@@ -1,2 +1,2 @@
 # 3DPrintingFW
-Firmware variations for my 3D printers
+Marlin configurations for my self built Repraps (Prusa) style FDM printer(s)
